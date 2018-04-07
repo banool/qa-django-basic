@@ -1,0 +1,21 @@
+{% include '../base.html' %}
+
+<title>q and a</title>
+
+<a href="/ask">Ask a question</a>
+</br>
+</br>
+
+<b>Questions with answers ({{ questions|length }})</b></br>
+Newest first.
+</br>
+{% for question in questions %}
+<br />
+<h3>{{ question.question }}</h3>
+<p>
+    <b>{{ question.answer_date }}</b></br>
+    {{ question.answer }}
+</p>
+{% empty %}
+<p>No one has asked any questions that I have answered yet :(</p>
+{% endfor %}

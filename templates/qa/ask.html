@@ -1,0 +1,9 @@
+{% include '../base.html' %}
+
+<title>ask me a thing</title>
+
+Ask me a question pal:
+<form action="/ask" method="post">
+    {% csrf_token %} {{ form }}
+    <input type="submit" value="Ask" />
+</form>
