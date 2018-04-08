@@ -2,7 +2,7 @@ from .models import Question
 from django import forms
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
-from django.utils.timezone import localtime, now
+from django.utils.timezone import now
 from ratelimit.decorators import ratelimit
 
 import logging
@@ -42,7 +42,7 @@ def ask(request):
             Question.objects.create(
                 question=form.cleaned_data['question'],
                 answer=None,
-                ask_date=localtime(now()).date(),
+                ask_date=now(),
                 answer_date=None,
             )
             # TODO What if I gave them an option to be notified when I respond.

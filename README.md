@@ -8,7 +8,7 @@ Currently you can't answer the questions without the admin page.
 
 ## To do
 I want to implement:
-- Rate limiting.
+- ~Rate limiting.~
 - A way to answer the questions without using the admin page.
 - Notifying the site owner when they receive a question.
 - Notifying the person who asked a question when it is answered (this would of course preclude anonymity).
