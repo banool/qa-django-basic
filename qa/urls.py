@@ -9,6 +9,7 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('ask', views.ask, name='ask'),
     path('thanks', views.thanks, name='thanks'),
+    path('limited', views.limited, name='limited'),
 ]
 
 if settings.DEBUG:

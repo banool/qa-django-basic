@@ -3,6 +3,7 @@ from django import forms
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.utils.timezone import localtime, now
+from ratelimit.decorators import ratelimit
 
 import logging
 
@@ -26,9 +27,13 @@ class AskForm(forms.Form):
     )
 
 
+@ratelimit(key='ip', rate='2/m', method=ratelimit.UNSAFE)
 def ask(request):
     # if this is a POST request we need to process the form data
     if request.method == 'POST':
+        was_limited = getattr(request, 'limited', False)
+        if was_limited:
+            return HttpResponseRedirect('/limited')
         # create a form instance and populate it with data from the request:
         form = AskForm(request.POST)
         # check whether it's valid:
@@ -53,3 +58,8 @@ def ask(request):
 def thanks(request):
     context = {}
     return render(request, 'qa/thanks.html', context)
+
+
+def limited(request):
+    context = {}
+    return render(request, 'qa/limited.html', context)
