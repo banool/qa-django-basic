@@ -2,13 +2,14 @@
 
 <title>q and a</title>
 
-<a href="/ask">Ask a question</a>
+<a href="/ask">Ask a question</a></br></br>
+<a href="https://github.com/banool/qa-django-basic"><em>Check this out on Github</em></a>
 </br>
 </br>
 
-<b>Questions with answers ({{ questions|length }})</b></br>
+<h2 style="line-height: 0px;">Questions with answers ({{ questions|length }})</h2>
 Newest first.
-</br>
+<br />
 {% for question in questions %}
 <br />
 <h3>{{ question.question }}</h3>
