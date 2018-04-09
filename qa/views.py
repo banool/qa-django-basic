@@ -1,5 +1,6 @@
 from .models import Question
 from django import forms
+from django.core.mail import EmailMessage
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.utils.timezone import now
@@ -46,6 +47,12 @@ def ask(request):
                 answer_date=None,
             )
             # TODO What if I gave them an option to be notified when I respond.
+            email = EmailMessage(
+                'Question received!',
+                'A question has been received on the Q & A thingy!',
+                to=['danielporteous1@gmail.com']
+            )
+            email.send()
             return HttpResponseRedirect('/thanks')
 
     # if a GET (or any other method) we'll create a blank form
