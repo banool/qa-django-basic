@@ -39,7 +39,7 @@ LOGGING = {
         'file': {
             'level': 'DEBUG',
             'class': 'logging.FileHandler',
-            'filename': '/var/log/q_and_a-django/log',
+            'filename': '/var/log/qa-django/log',
         },
     },
     'loggers': {
