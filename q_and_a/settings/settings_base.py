@@ -94,7 +94,8 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+# WARNING NOTE I am using my local timezone here, change this accordingly.
+TIME_ZONE = 'America/Los_Angeles'
 
 USE_I18N = True
 

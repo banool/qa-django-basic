@@ -1,7 +1,5 @@
 {% include '../base.html' %}
 
-<title>q and a</title>
-
 <a href="/ask">Ask a question</a></br></br>
 <a href="https://github.com/banool/qa-django-basic"><em>Check this out on Github</em></a>
 </br>
@@ -14,9 +12,15 @@ Newest first.
 <br />
 <h3>{{ question.question }}</h3>
 <p>
+    
     <b>{{ question.answer_date }}</b></br>
     {{ question.answer }}
 </p>
 {% empty %}
 <p>No one has asked any questions that I have answered yet :(</p>
 {% endfor %}
+
+</br>
+</br>
+</br>
+<p>All times are localised to San Francisco (my timezone) currently :)</p>
