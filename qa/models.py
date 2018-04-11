@@ -3,9 +3,9 @@ from django.db import models
 
 class Question(models.Model):
     question = models.TextField()
-    answer = models.TextField(null=True)
+    answer = models.TextField(null=True, blank=True)
     ask_date = models.DateTimeField(null=True)
-    answer_date = models.DateTimeField(null=True)
+    answer_date = models.DateTimeField(null=True, blank=True)
 
     def __str__(self):
         preview_len = 20

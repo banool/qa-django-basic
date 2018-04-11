@@ -12,10 +12,12 @@ logger = logging.getLogger(__name__)
 
 
 def index(request):
-    questions = Question.objects.order_by('-answer_date')
-    questions = [q for q in questions if q.answer]
+    questions_all = Question.objects.order_by('-answer_date')
+    questions = [q for q in questions_all if q.answer]
+    unanswered = len([q for q in questions_all if not q.answer])
     context = {
         'questions': questions,
+        'unanswered': unanswered,
     }
     return render(request, 'qa/index.html', context)
 
